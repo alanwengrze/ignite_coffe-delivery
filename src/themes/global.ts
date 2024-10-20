@@ -27,7 +27,13 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
   }
 
-  button:hover {
+  h1, h2 {
+    
+    font-family: "Baloo 2", cursive;
+    font-weight: 800;
+  }
+
+  button:hover { 
     cursor: pointer;
   }
 `;

@@ -1,9 +1,9 @@
 import { HomeContainer } from "./styles";
-
+import { Banner } from "./Banner";
 export function Home(){
   return(
     <HomeContainer>
-      <h1>Home</h1>
+      <Banner/>
     </HomeContainer>
   )
 }
