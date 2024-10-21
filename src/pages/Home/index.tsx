@@ -5,6 +5,7 @@ export function Home(){
   return(
     <HomeContainer>
       <Banner/>
+      <h1>Nossos cafés</h1>
       <CoffeeList>
         <CardCoffee/>
         <CardCoffee/>

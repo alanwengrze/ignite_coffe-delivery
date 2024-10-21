@@ -24,7 +24,4 @@ export const Location = styled.div`
   padding: 0.8rem 1.6rem;
   border-radius: 6px;
 
-  > svg {
-    
-  }
 `;
