@@ -33,6 +33,14 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 800;
   }
 
+  h1{
+
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
   button:hover { 
     cursor: pointer;
   }

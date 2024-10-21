@@ -4,11 +4,13 @@ import styled from "styled-components";
 const CART_COLOR_TEXT = {
   yellow: 'yellowDark',
   purple: 'purpleDark',
+  default: 'white'
 } as const
 
 const CART_COLOR_BACKGROUND = {
   yellow: 'yellowLight',
-  purple: 'purpleLight'
+  purple: 'purpleLight',
+  purpleDark: 'purpleDark',
 } as const
 
 export interface CartProps {

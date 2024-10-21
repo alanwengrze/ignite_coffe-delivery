@@ -1,15 +1,10 @@
 import styled from "styled-components";
-
 export const BannerContainer = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 3.2rem;
-  margin-top: 8.4rem;
-  
 `;
-
 export const ContentLeft = styled.div`
   display: flex;
   flex-direction: column;
