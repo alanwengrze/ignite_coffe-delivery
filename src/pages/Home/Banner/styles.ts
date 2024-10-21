@@ -64,5 +64,4 @@ export const Item = styled.div<ItemProps>`
 export const BannerImage = styled.img`
   aspect-ratio: 1;
   width: 50%;
-  
 `
