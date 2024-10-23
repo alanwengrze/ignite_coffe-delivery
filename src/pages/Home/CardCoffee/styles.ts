@@ -64,6 +64,7 @@ export const BuyCoffee = styled.div`
 `;
 
 export const CounterCoffee = styled.div`
+  height: 3.2rem;
   display: flex;
   align-items: center;
   justify-content: center;

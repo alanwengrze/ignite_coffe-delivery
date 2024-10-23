@@ -19,4 +19,11 @@ export const defaultTheme = {
     yellow: '#DBAC2C',
     yellowDark: '#C47F17',
   },
+  SCREENS: {
+    SM: '576px',
+    MD: '768px',
+    LG: '1024px',
+    XL: '1280px',
+    XXL: '1440px',
+  },
 }
