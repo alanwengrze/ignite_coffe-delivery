@@ -1,6 +1,5 @@
 import styled from "styled-components";
 export const BannerContainer = styled.div`
-  /* height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,6 +11,9 @@ export const ContentLeft = styled.div`
 `;
 
 export const Message = styled.div`
+
+  margin-top: 8rem;
+
   > h1 {
     color: ${({theme}) => theme.colors.baseTitle};
     font-size: clamp(1.6rem, 2vw + 1rem, 4.8rem);
@@ -28,7 +30,11 @@ export const Message = styled.div`
 export const ItemsWrapper = styled.div`
   display: flex;
   gap: 2rem;
-  margin-top: 6.6rem;
+  margin:6rem 0;
+
+  @media (max-width: ${({theme}) => theme.SCREENS.MD}){
+    flex-direction: column;
+  }
 `
 export const ItemSeparator = styled.div`
   display: flex;
@@ -65,4 +71,8 @@ export const Item = styled.div<ItemProps>`
 export const BannerImage = styled.img`
   aspect-ratio: 1;
   width: 50%;
+
+  @media (max-width: ${({theme}) => theme.SCREENS.XL}){
+    display: none;
+  }
 `

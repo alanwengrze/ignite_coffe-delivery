@@ -3,7 +3,10 @@ import logoCoffeeDelivery from "../../assets/Logo.svg"
 import { HeaderContainer, Location } from "./styles"
 import { Cart } from "../Cart"
 import { Link } from "react-router-dom"
+import { CartContext } from "../../contexts/CartContext"
+import { useContext } from "react"
 export function Header() {
+  const {countCart} = useContext(CartContext)
   return (
     <HeaderContainer>
       <Link to="/">
@@ -16,10 +19,17 @@ export function Header() {
             Florianópolis, SC
           </span>
         </Location>
-        <Cart 
-          $cartColorBackground="yellow"
-          $cartColorText="yellow"
-        />
+        <Link to="/checkout" className="cartLink">
+        {
+          countCart > 0 && (
+            <div className="cartCounter"><span>{countCart}</span></div>
+          )
+        }
+          <Cart
+            $cartColorBackground="yellow"
+            $cartColorText="yellow"
+          />
+        </Link>
       </div>
     </HeaderContainer>       
   )

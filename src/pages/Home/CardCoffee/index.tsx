@@ -1,18 +1,36 @@
 import { Plus, Minus } from "phosphor-react"
 import { CardCoffeeContainer, TagCoffee, BuyCoffee, CounterCoffee } from "./styles";
 import { Cart } from "../../../components/Cart";
-import coffeeImage from '../../../assets/coffee.png';
-export function CardCoffee(){
+
+interface CoffeeProps {
+  coffee: {
+    id: string;
+    title: string;
+    description: string;
+    price: number;
+    image: string;
+    tags: string[]
+  }
+}
+export function CardCoffee({ coffee }: CoffeeProps) {
   return(
     <CardCoffeeContainer>
-      <img src={coffeeImage} alt="" />
-      <TagCoffee>
-        TRADICIONAL
-      </TagCoffee>
-      <h2>Expresso Tradicional</h2>
-      <p>O tradicional café feito com água quente e grãos moídos</p>
+      <img src={coffee.image} alt="" />
+      <div className="tags">
+        {
+          coffee.tags.map((tag) => {
+            return(
+              <TagCoffee key={tag}>
+                {tag}
+              </TagCoffee>
+            )
+          })
+        }
+      </div>
+      <h2>{coffee.title}</h2>
+      <p>{coffee.description}</p>
       <BuyCoffee>
-        <span>9,90</span>
+        <span>{coffee.price}</span>
         <CounterCoffee>
           <button>{<Plus size={14}/>}</button>
           <span>1</span>

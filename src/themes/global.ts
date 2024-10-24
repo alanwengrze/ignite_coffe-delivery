@@ -29,6 +29,10 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
   }
 
+  a{
+    text-decoration: none;
+  }
+
   h1, h2 {
     
     font-family: "Baloo 2", cursive;

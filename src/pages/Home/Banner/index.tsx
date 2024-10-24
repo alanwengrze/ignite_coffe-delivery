@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BannerContainer, Message, ItemsWrapper, Item, ContentLeft, ItemSeparator, BannerImage } from "./styles";
 import { ShoppingCart, Clock, Coffee, Package } from "phosphor-react";
 import banner from "../../../assets/banner.svg";

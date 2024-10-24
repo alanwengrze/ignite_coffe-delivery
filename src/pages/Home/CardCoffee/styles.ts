@@ -2,25 +2,30 @@ import styled from "styled-components";
 
 
 export const CardCoffeeContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: min-content;
   gap: 1rem;
-  padding: 2rem;
+  padding: 2rem 2.4rem;
   background-color: ${({theme}) => theme.colors.baseCard};
   border-radius: 6px 36px;
 
   > img {
-    margin: -40px auto 1rem;
-    width: 12rem;
-    height: 12rem;
+    position: absolute;
+    top: -2rem;
+    left: calc(50% - 5rem);
+    width: 10rem;
+    height: 10rem;
     object-fit: cover;
   }
 
   > h2 {
     color: ${({theme}) => theme.colors.baseSubtitle};
+    text-align: center;
+    white-space: nowrap;
   }
 
   > p {
@@ -28,15 +33,21 @@ export const CardCoffeeContainer = styled.div`
     font-size: 1.4rem;
     text-align: center;
   }
+  .tags {
+    margin-top: 8rem;
+  }
 `;
+
 export const TagCoffee = styled.span`
   background-color: ${({theme}) => theme.colors.yellowLight};
   color: ${({theme}) => theme.colors.yellowDark};
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   padding: 0.4rem 1.2rem;
   border-radius: 6px;
+
+  margin-left: 0.8rem;
 
 `;
 
@@ -45,6 +56,7 @@ export const BuyCoffee = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 0.8rem;
+  margin-top: 2.4rem;
   > span {
     font-family: "Baloo 2", cursive;
     font-weight: 800;
