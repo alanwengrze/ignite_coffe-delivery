@@ -1,6 +1,8 @@
 import { Plus, Minus } from "phosphor-react"
 import { CardCoffeeContainer, TagCoffee, BuyCoffee, CounterCoffee } from "./styles";
 import { Cart } from "../../../components/Cart";
+import { CartContext } from "../../../contexts/CartContext";
+import { useContext, useEffect, useState } from "react";
 
 interface CoffeeProps {
   coffee: {
@@ -11,8 +13,16 @@ interface CoffeeProps {
     image: string;
     tags: string[]
   }
+  onIncrement: () => void
+  onDecrement: () => void
+  countCoffee: number
 }
-export function CardCoffee({ coffee }: CoffeeProps) {
+export function CardCoffee({ coffee, onIncrement, onDecrement, countCoffee }: CoffeeProps) {
+  const { addCoffeeToCart } = useContext(CartContext)
+
+  function handleAddCoffeeToCart() {
+    addCoffeeToCart(coffee)
+  }
   return(
     <CardCoffeeContainer>
       <img src={coffee.image} alt="" />
@@ -32,13 +42,13 @@ export function CardCoffee({ coffee }: CoffeeProps) {
       <BuyCoffee>
         <span>{coffee.price}</span>
         <CounterCoffee>
-          <button>{<Plus size={14}/>}</button>
-          <span>1</span>
-          <button>{<Minus size={14}/>}</button>
+          <button onClick={onIncrement}>{<Plus size={14}/>}</button>
+          <span>{countCoffee}</span>
+          <button onClick={onDecrement}>{<Minus size={14}/>}</button>
         </CounterCoffee>
         <Cart 
-          $cartColorBackground="purpleDark"
-          $cartColorText="default"
+          colors={{$cartColorBackground: 'purple', $cartColorText: 'purple'}}
+          onAddCoffee={handleAddCoffeeToCart}
         />
       </BuyCoffee>
     </CardCoffeeContainer>

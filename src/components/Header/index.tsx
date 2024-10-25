@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import { CartContext } from "../../contexts/CartContext"
 import { useContext } from "react"
 export function Header() {
-  const {countCart} = useContext(CartContext)
+  const {countCart, coffees} = useContext(CartContext)
   return (
     <HeaderContainer>
       <Link to="/">
@@ -21,13 +21,12 @@ export function Header() {
         </Location>
         <Link to="/checkout" className="cartLink">
         {
-          countCart > 0 && (
-            <div className="cartCounter"><span>{countCart}</span></div>
+          coffees.length > 0 && (
+            <div className="cartCounter"><span>{coffees.length}</span></div>
           )
         }
           <Cart
-            $cartColorBackground="yellow"
-            $cartColorText="yellow"
+            colors={{ $cartColorBackground: "yellow", $cartColorText: "yellow" }}
           />
         </Link>
       </div>
