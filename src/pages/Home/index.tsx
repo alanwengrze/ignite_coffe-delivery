@@ -13,9 +13,7 @@ export function Home(){
     countCart > 0 &&
     decrementCountCart()
   }
-  useEffect(() => {
-    console.log(countCart)
-  }, [countCart])
+
   return(
     <HomeContainer>
       <Banner/>
