@@ -1,7 +1,17 @@
 import { SuccessContainer, Content, MessageSuccess, OrderInfo, Info, InfoWrapper} from "./styles"
 import { MapPin, Clock, CurrencyDollar } from "phosphor-react"
 import successImage from "../../assets/SuccessImage.svg"
+import { useContext } from "react"
+import { CartContext } from "../../contexts/CartContext"
+import { useParams } from "react-router-dom"
 export function Success() {
+  const { address } = useContext(CartContext)
+  const  addressId  = useParams()
+  const addressInfo = address.find((address) => address.id === Number(addressId.id))
+
+  if (!addressInfo?.id) {
+    return null
+  }
   return (
     <SuccessContainer>
       <Content>
@@ -13,8 +23,8 @@ export function Success() {
           <Info $infoColor="address">
             <MapPin weight="fill"/>
             <InfoWrapper>
-              <p>Entrega em <span>Rua Floriano Peixoto, 267</span></p>
-              <p>Florianópolis, SC</p>
+              <p>Entrega em <span>{addressInfo?.rua}, {addressInfo?.numero}</span></p>
+              <p>{addressInfo?.bairro} - {addressInfo?.cidade}, {addressInfo?.uf}</p>
             </InfoWrapper>
           </Info>
           <Info $infoColor="delivery">

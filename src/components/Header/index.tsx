@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import { CartContext } from "../../contexts/CartContext"
 import { useContext } from "react"
 export function Header() {
-  const {countCart, coffees} = useContext(CartContext)
+  const {cart} = useContext(CartContext)
   return (
     <HeaderContainer>
       <Link to="/">
@@ -21,8 +21,8 @@ export function Header() {
         </Location>
         <Link to="/checkout" className="cartLink">
         {
-          coffees.length > 0 && (
-            <div className="cartCounter"><span>{coffees.length}</span></div>
+          cart.length > 0 && (
+            <div className="cartCounter"><span>{cart.length}</span></div>
           )
         }
           <Cart

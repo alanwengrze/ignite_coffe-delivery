@@ -3,9 +3,21 @@ import { Address } from "./Address"
 import { Payment } from "./Payment"
 import { CoffeesToPay } from "./CoffeesToPay"
 
-import { useForm, FormProvider } from "react-hook-form"
+import { useForm, FormProvider, type SubmitHandler } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { useContext } from "react"
+import { CartContext } from "../../contexts/CartContext"
+
+type FormInputs = {
+  cep: string;
+  rua: string;
+  numero: string;
+  bairro: string;
+  cidade: string;
+  uf: string;
+  complemento?: string | undefined;
+}
 
 const addressFormSchema = z.object({
   cep: z.string(),
@@ -17,9 +29,12 @@ const addressFormSchema = z.object({
   uf: z.string().max(2, "Deve ter 2 letras"),
 })
 
-type AddressFormProps = z.infer<typeof addressFormSchema>
+export type AddressFormProps = z.infer<typeof addressFormSchema>
 export function Checkout() {
-  const addressForm = useForm<AddressFormProps>({
+  const { cart, checkout, address } = useContext(CartContext)
+  console.log(address)
+
+  const addressForm = useForm<FormInputs>({
     resolver: zodResolver(addressFormSchema),
     defaultValues: {
       cep: "",
@@ -32,11 +47,15 @@ export function Checkout() {
     }
   })
   
-  function handleCheckout(data: AddressFormProps) {
-    console.log(data)
+  const handleOrderCheckout: SubmitHandler<FormInputs> = (data) => {
+    if (cart.length === 0) {
+      return alert('É preciso ter pelo menos um item no carrinho')
+    }
+
+    checkout(data)
   }
   return (
-    <CheckoutContainer onSubmit={addressForm.handleSubmit(handleCheckout)}>
+    <CheckoutContainer onSubmit={addressForm.handleSubmit(handleOrderCheckout)}>
       <FormProvider {...addressForm}>
         <Address />
       </FormProvider>

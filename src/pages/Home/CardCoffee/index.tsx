@@ -13,15 +13,29 @@ interface CoffeeProps {
     image: string;
     tags: string[]
   }
-  onIncrement: () => void
-  onDecrement: () => void
-  countCoffee: number
 }
-export function CardCoffee({ coffee, onIncrement, onDecrement, countCoffee }: CoffeeProps) {
-  const { addCoffeeToCart } = useContext(CartContext)
+export function CardCoffee({ coffee }: CoffeeProps) {
+  const [quantity, setQuantity] = useState(1)
+  const [isItemAdded, setIsItemAdded] = useState(false)
+  const { addItemToCart } = useContext(CartContext)
+
+  function incrementQuantity() {
+    setQuantity((state) => state + 1)
+  }
+
+  function decrementQuantity() {
+    if (quantity > 1) {
+      setQuantity((state) => state - 1)
+    }
+  }
 
   function handleAddCoffeeToCart() {
-    addCoffeeToCart(coffee)
+    addItemToCart({
+      id: coffee.id,
+      quantity: 1
+    })
+    setIsItemAdded(true)
+    setQuantity(1)
   }
   return(
     <CardCoffeeContainer>
@@ -42,9 +56,9 @@ export function CardCoffee({ coffee, onIncrement, onDecrement, countCoffee }: Co
       <BuyCoffee>
         <span>{coffee.price}</span>
         <CounterCoffee>
-          <button onClick={onIncrement}>{<Plus size={14}/>}</button>
-          <span>{countCoffee}</span>
-          <button onClick={onDecrement}>{<Minus size={14}/>}</button>
+          <button onClick={incrementQuantity}>{<Plus size={14}/>}</button>
+          <span>{quantity}</span>
+          <button onClick={decrementQuantity}>{<Minus size={14}/>}</button>
         </CounterCoffee>
         <Cart 
           colors={{$cartColorBackground: 'purple', $cartColorText: 'purple'}}

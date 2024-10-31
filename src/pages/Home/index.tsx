@@ -3,16 +3,9 @@ import { Banner } from "./Banner";
 import { CardCoffee } from "./CardCoffee";
 import { coffees } from "../../../data.json";
 import { CartContext } from "../../contexts/CartContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 export function Home(){
-  const { countCart, incrementCountCart, decrementCountCart } = useContext(CartContext)
-  const handleIncrementCountCart = () => {
-    incrementCountCart()
-  }
-  const handleDecrementCountCart = () => {
-    countCart > 0 &&
-    decrementCountCart()
-  }
+  const {  } = useContext(CartContext)
 
   return(
     <HomeContainer>
@@ -25,9 +18,6 @@ export function Home(){
               <CardCoffee
                 key={coffee.id}
                 coffee={coffee}
-                onIncrement={handleIncrementCountCart}
-                onDecrement={handleDecrementCountCart}
-                countCoffee={countCart}
               />
             )
           })
