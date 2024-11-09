@@ -15,8 +15,7 @@ interface CoffeeProps {
   }
 }
 export function CardCoffee({ coffee }: CoffeeProps) {
-  const [quantity, setQuantity] = useState(1)
-  // const [isItemAdded, setIsItemAdded] = useState(false)
+  const [quantity, setQuantity] = useState(0)
   const { addItemToCart } = useContext(CartContext)
 
   function incrementQuantity() {
@@ -30,12 +29,14 @@ export function CardCoffee({ coffee }: CoffeeProps) {
   }
 
   function handleAddCoffeeToCart() {
+    if(quantity === 0){
+      return alert('Selecione uma quantidade')
+    }
     addItemToCart({
       id: coffee.id,
-      quantity: 1
+      quantity: quantity
     })
-    // setIsItemAdded(true)
-    setQuantity(1)
+    setQuantity(0)
   }
   return(
     <CardCoffeeContainer>
@@ -61,9 +62,10 @@ export function CardCoffee({ coffee }: CoffeeProps) {
           <button onClick={decrementQuantity}>{<Minus size={14}/>}</button>
         </CounterCoffee>
         <Cart 
-          colors={{$cartColorBackground: 'purple', $cartColorText: 'purple'}}
-          onAddCoffee={handleAddCoffeeToCart}
+        colors={{$cartColorBackground: 'purple', $cartColorText: 'purple'}}
+        onAddCoffee={handleAddCoffeeToCart}
         />
+        
       </BuyCoffee>
     </CardCoffeeContainer>
   )
