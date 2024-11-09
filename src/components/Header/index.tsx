@@ -19,16 +19,19 @@ export function Header() {
             Florianópolis, SC
           </span>
         </Location>
-        <Link to="/checkout" className="cartLink">
+        
         {
           cart.length > 0 && (
+          <Link to="/checkout" className="cartLink">
             <div className="cartCounter"><span>{cart.length}</span></div>
+
+            <Cart
+              colors={{ $cartColorBackground: "yellow", $cartColorText: "yellow" }}
+            />
+          </Link>
           )
         }
-          <Cart
-            colors={{ $cartColorBackground: "yellow", $cartColorText: "yellow" }}
-          />
-        </Link>
+         
       </div>
     </HeaderContainer>       
   )

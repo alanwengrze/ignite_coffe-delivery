@@ -2,7 +2,7 @@ import { Plus, Minus } from "phosphor-react"
 import { CardCoffeeContainer, TagCoffee, BuyCoffee, CounterCoffee } from "./styles";
 import { Cart } from "../../../components/Cart";
 import { CartContext } from "../../../contexts/CartContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 interface CoffeeProps {
   coffee: {
@@ -16,7 +16,7 @@ interface CoffeeProps {
 }
 export function CardCoffee({ coffee }: CoffeeProps) {
   const [quantity, setQuantity] = useState(1)
-  const [isItemAdded, setIsItemAdded] = useState(false)
+  // const [isItemAdded, setIsItemAdded] = useState(false)
   const { addItemToCart } = useContext(CartContext)
 
   function incrementQuantity() {
@@ -34,7 +34,7 @@ export function CardCoffee({ coffee }: CoffeeProps) {
       id: coffee.id,
       quantity: 1
     })
-    setIsItemAdded(true)
+    // setIsItemAdded(true)
     setQuantity(1)
   }
   return(

@@ -6,9 +6,9 @@ import { CoffeesToPay } from "./CoffeesToPay"
 import { useForm, FormProvider, type SubmitHandler } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { CartContext } from "../../contexts/CartContext"
-
+import { useNavigate } from "react-router-dom"
 type FormInputs = {
   cep: string;
   rua: string;
@@ -31,8 +31,8 @@ const addressFormSchema = z.object({
 
 export type AddressFormProps = z.infer<typeof addressFormSchema>
 export function Checkout() {
-  const { cart, checkout, address } = useContext(CartContext)
-  console.log(address)
+  const { cart, checkout } = useContext(CartContext)
+  const navigate = useNavigate()
 
   const addressForm = useForm<FormInputs>({
     resolver: zodResolver(addressFormSchema),
@@ -54,6 +54,11 @@ export function Checkout() {
 
     checkout(data)
   }
+  useEffect(() => {
+    if(cart.length === 0) {
+      navigate('/')
+    }
+  }, [cart])
   return (
     <CheckoutContainer onSubmit={addressForm.handleSubmit(handleOrderCheckout)}>
       <FormProvider {...addressForm}>

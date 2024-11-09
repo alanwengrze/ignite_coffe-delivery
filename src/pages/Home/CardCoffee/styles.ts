@@ -35,6 +35,10 @@ export const CardCoffeeContainer = styled.div`
   }
   .tags {
     margin-top: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
   }
 `;
 
