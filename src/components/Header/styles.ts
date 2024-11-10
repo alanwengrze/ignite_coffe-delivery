@@ -6,6 +6,10 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 3.2rem 0;
 
+  a > img {
+    width: 100%;
+  }
+
   > div {
     display: flex;
     align-items: center;
@@ -30,6 +34,10 @@ export const HeaderContainer = styled.header`
     font-size: 1.2rem;
     font-weight: 700;
   }
+
+  @media (max-width: ${({theme}) => theme.SCREENS.SM}){
+
+  }
 `
 
 export const Location = styled.div`
@@ -41,5 +49,9 @@ export const Location = styled.div`
   background-color: ${({theme}) => theme.colors.purpleLight};
   padding: 0.8rem 1.6rem;
   border-radius: 6px;
+
+  @media (max-width: ${({theme}) => theme.SCREENS.XS}){
+    display: none;
+  }
 
 `;

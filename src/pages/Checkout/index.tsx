@@ -2,6 +2,7 @@ import { CheckoutContainer } from "./styles"
 import { Address } from "./Address"
 import { Payment } from "./Payment"
 import { CoffeesToPay } from "./CoffeesToPay"
+import { VoidCartCheckout } from "./VoidCartCheckout"
 
 import { useForm, FormProvider, type SubmitHandler } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -55,12 +56,20 @@ export function Checkout() {
     checkout(data)
   }
   return (
-    <CheckoutContainer onSubmit={addressForm.handleSubmit(handleOrderCheckout)}>
-      <FormProvider {...addressForm}>
-        <Address />
-      </FormProvider>
-      <Payment />
-      <CoffeesToPay />
-    </CheckoutContainer>
+    <>
+      {cart.length === 0 ? (
+        <VoidCartCheckout />
+      ): (
+      <CheckoutContainer onSubmit={addressForm.handleSubmit(handleOrderCheckout)}>
+        <FormProvider {...addressForm}>
+          <Address />
+        </FormProvider>
+        <Payment />
+        <CoffeesToPay />
+      </CheckoutContainer>
+      )
+       }
+    </>
+    
   )
 }

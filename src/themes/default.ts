@@ -20,6 +20,7 @@ export const defaultTheme = {
     yellowDark: '#C47F17',
   },
   SCREENS: {
+    XS: '480px',
     SM: '576px',
     MD: '768px',
     LG: '1024px',

@@ -19,7 +19,11 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
 
     background-color: ${({theme}) => theme.colors.background};
+
+
   }
+
+  
 
   input,
   textarea,

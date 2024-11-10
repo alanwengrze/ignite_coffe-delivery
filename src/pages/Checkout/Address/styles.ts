@@ -25,6 +25,13 @@ export const AddressContainer = styled.section`
     color: ${({theme}) => theme.colors.baseText};
     margin-left: 2.4rem;
   }
+
+  @media (max-width: ${({theme}) => theme.SCREENS.XS}) {
+    > p {
+      margin: 0.4rem 0 0 0.4rem;
+      font-size: 1.2rem;
+    }
+  }
 `
 export const AddressForm = styled.section`
   display: flex;
@@ -33,6 +40,12 @@ export const AddressForm = styled.section`
 
  > input:first-child {
     width: fit-content;
+  }
+
+  @media (max-width: ${({theme}) => theme.SCREENS.XS}) {
+    > input:first-child {
+      width: auto;
+    }
   }
 `;
 export const Input = styled.input`
@@ -44,6 +57,10 @@ export const Input = styled.input`
   border-radius: 4px;
   padding: 1.6rem;
   font-size: 1.4rem;
+
+  @media (max-width: ${({theme}) => theme.SCREENS.XS}) {
+    height: 4rem;
+  }
 `
 export const InputWrapper = styled.div`
   display: flex;
@@ -56,5 +73,18 @@ export const InputWrapper = styled.div`
 
   > input:nth-child(3){
     width: 20%;
+  }
+
+  @media (max-width: ${({theme}) => theme.SCREENS.SM}) {
+
+    flex-direction: column;
+
+    > input:first-child {
+      width: auto;
+    }
+
+    > input:nth-child(3){
+      width: 100%;
+    }
   }
 `

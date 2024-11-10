@@ -2,6 +2,7 @@ import { BannerContainer, Message, ItemsWrapper, Item, ContentLeft, ItemSeparato
 import { ShoppingCart, Clock, Coffee, Package } from "phosphor-react";
 import banner from "../../../assets/banner.svg";
 export function Banner () {
+
   return(
     <BannerContainer>
       <ContentLeft>

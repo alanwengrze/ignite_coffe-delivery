@@ -12,10 +12,9 @@ export const CheckoutContainer = styled.form`
   gap: 2.4rem;
 
   @media (max-width: ${({theme}) => theme.SCREENS.XL}) {
-    grid-template-areas: 
-    "address"
-    "payment"
-    "coffeesToPay";
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem 0;
   }
 `
 

@@ -23,6 +23,12 @@ export const PaymentContainer = styled.div`
     color: ${({theme}) => theme.colors.baseText};
     margin-left: 2.4rem;
   }
+  @media (max-width: ${({theme}) => theme.SCREENS.XS}) {
+    > p {
+      margin: 0.4rem 0 0 0.4rem;
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 export const PaymentOptions = styled.div`
@@ -30,6 +36,10 @@ export const PaymentOptions = styled.div`
   gap: 1.2rem;
 
   margin-top: 2.4rem;
+
+  @media (max-width: ${({theme}) => theme.SCREENS.XS}) {
+    flex-direction: column;
+  }
 `;
 
 export const PaymentOptionWrapper = styled.div`
@@ -51,4 +61,11 @@ export const PaymentOptionWrapper = styled.div`
     color: ${({theme}) => theme.colors.baseText};
   }
   
+  @media (max-width: ${({theme}) => theme.SCREENS.SM}) {
+    padding: 1rem;
+
+    > p {
+      font-size: 1rem;
+    }
+  }
 `

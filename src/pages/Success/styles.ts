@@ -9,6 +9,18 @@ export const SuccessContainer = styled.div`
     width: 50%;
     aspect-ratio: 1;
   }
+
+  @media (max-width: ${({theme}) => theme.SCREENS.SM}) {
+    > img {
+      width: 70%;
+    }
+  }
+
+  @media (max-width: ${({theme}) => theme.SCREENS.XL}) {
+    flex-direction: column;
+
+    gap: 0;
+  }
 `
 export const Content = styled.div`
   display: flex;
@@ -23,6 +35,16 @@ export const MessageSuccess = styled.div`
   p{
     color: ${({theme}) => theme.colors.baseSubtitle};
     font-size: 2rem;
+  }
+
+  @media (max-width: ${({theme}) => theme.SCREENS.SM}) {
+    > h1{
+      font-size: 2rem;
+    }
+
+    > p {
+      font-size: 1.4rem;
+    }
   }
 `
 export const OrderInfo = styled.div`
@@ -69,4 +91,13 @@ export const Info = styled.div<InfoProps>`
 `
 export const InfoWrapper = styled.div`
   
+  @media (max-width: ${({theme}) => theme.SCREENS.SM}) {
+    p {
+      font-size: 1.2rem; 
+    }
+
+    span {
+        font-size: 1.2rem;
+      }
+  }
 `

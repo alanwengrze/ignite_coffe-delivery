@@ -11,8 +11,11 @@ export const CoffeesToPayContainer = styled.div`
   background-color: ${({theme}) => theme.colors.baseCard};
   border-radius: 6px 36px;
 
-  @media (max-width: ${({theme}) => theme.SCREENS.XL}){
+  @media (max-width: ${({theme}) => theme.SCREENS.XS}){
+    align-items: baseline;
+
     width: 100%;
+    padding: 2rem;
   }
 `
 
@@ -41,10 +44,14 @@ export const CoffeesList = styled.div`
   }
 
   > span {
-    margin-left: 2rem;
     color: ${({theme}) => theme.colors.baseText};
     font-weight: 700;
     width: max-content;
+  }
+
+  @media (max-width: ${({theme}) => theme.SCREENS.XS}) {
+    flex-direction: column;
+    align-items:baseline;
   }
 `;
 export const ButtonCoffeesWrapper = styled.div`
@@ -69,6 +76,7 @@ export const ButtonCoffeesWrapper = styled.div`
       color: ${({theme}) => theme.colors.purple};
     }
   }
+
 `;
 
 export const Amount = styled.div`
@@ -99,6 +107,15 @@ export const Amount = styled.div`
     
   }
 
+  @media (max-width: ${({theme}) => theme.SCREENS.XL}){
+    > button {
+      width: fit-content;
+      margin: 0 auto;
+
+      font-size: 1.2rem;
+    }
+  }
+
 `
 export const AmountWrapper = styled.div`
   display: flex;
@@ -109,5 +126,10 @@ export const AmountWrapper = styled.div`
   p{
     color: ${({theme}) => theme.colors.baseText};
     font-size: 1.4rem;
+  }
+
+  @media (max-width: ${({theme}) => theme.SCREENS.XL}){
+    /* justify-content: center; */
+    /* gap: 4rem; */
   }
 `

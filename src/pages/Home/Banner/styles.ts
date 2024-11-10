@@ -12,7 +12,7 @@ export const ContentLeft = styled.div`
 
 export const Message = styled.div`
 
-  margin-top: 8rem;
+  margin-top: 6rem;
 
   > h1 {
     color: ${({theme}) => theme.colors.baseTitle};
@@ -32,7 +32,7 @@ export const ItemsWrapper = styled.div`
   gap: 2rem;
   margin:6rem 0;
 
-  @media (max-width: ${({theme}) => theme.SCREENS.MD}){
+  @media (max-width: ${({theme}) => theme.SCREENS.XS}){
     flex-direction: column;
   }
 `
@@ -65,6 +65,16 @@ export const Item = styled.div<ItemProps>`
     width: 3.2rem;
     padding: 0.2rem 0.4rem;
     border-radius: 50%;
+  }
+
+  @media (max-width: ${({theme})=> theme.SCREENS.XS}) {
+    > p {
+      font-size: 1.2rem;
+    }
+    > svg {
+      height: 2.4rem;
+      width: 2.4rem;
+    }
   }
 `
 
