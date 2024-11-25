@@ -23,6 +23,8 @@ export const PaymentContainer = styled.div`
     color: ${({theme}) => theme.colors.baseText};
     margin-left: 2.4rem;
   }
+
+ 
   @media (max-width: ${({theme}) => theme.SCREENS.XS}) {
     > p {
       margin: 0.4rem 0 0 0.4rem;
@@ -42,7 +44,7 @@ export const PaymentOptions = styled.div`
   }
 `;
 
-export const PaymentOptionWrapper = styled.div`
+export const PaymentOptionWrapper = styled.label`
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -50,12 +52,17 @@ export const PaymentOptionWrapper = styled.div`
   background-color: ${({theme}) => theme.colors.baseButton};
   border-radius: 6px;
   padding: 1.6rem;
+  cursor: pointer;
+
+  > input {
+    display: none;
+  }
 
   > svg {
     color: ${({theme}) => theme.colors.purple};
     
   }
-  > p {
+  > span {
     font-size: 1.2rem;
     text-transform: uppercase;
     color: ${({theme}) => theme.colors.baseText};
@@ -69,3 +76,4 @@ export const PaymentOptionWrapper = styled.div`
     }
   }
 `
+

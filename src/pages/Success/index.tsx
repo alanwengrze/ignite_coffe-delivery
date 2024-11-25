@@ -38,7 +38,7 @@ export function Success() {
             <CurrencyDollar/>
             <InfoWrapper>
               <p>Pagamento na entrega</p>
-              <span>Cartão de crédito</span>
+              <span>{addressInfo?.pagamento}</span>
             </InfoWrapper>
           </Info>
         </OrderInfo>

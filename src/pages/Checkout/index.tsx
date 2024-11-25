@@ -18,6 +18,7 @@ type FormInputs = {
   cidade: string;
   uf: string;
   complemento?: string | undefined;
+  pagamento: 'credito' | 'debito' | 'dinheiro'
 }
 
 const addressFormSchema = z.object({
@@ -28,6 +29,7 @@ const addressFormSchema = z.object({
   bairro: z.string().min(3, "Deve ter pelo menos 3 letras"),
   cidade: z.string().min(4, "Deve ter pelo menos 4 letras"),
   uf: z.string().max(2, "Deve ter 2 letras"),
+  pagamento: z.enum(['credito', 'debito', 'dinheiro'])
 })
 
 export type AddressFormProps = z.infer<typeof addressFormSchema>
@@ -45,6 +47,7 @@ export function Checkout() {
       bairro: "",
       cidade: "",
       uf: "",
+      pagamento: "credito",
     }
   })
   
@@ -63,8 +66,8 @@ export function Checkout() {
       <CheckoutContainer onSubmit={addressForm.handleSubmit(handleOrderCheckout)}>
         <FormProvider {...addressForm}>
           <Address />
+          <Payment />
         </FormProvider>
-        <Payment />
         <CoffeesToPay />
       </CheckoutContainer>
       )
